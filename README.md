@@ -1,75 +1,45 @@
-# React + TypeScript + Vite
+# Alternative Geographic Information Access – Proof of Concept
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
 
-Currently, two official plugins are available:
+This project explores a **geographic assistant as an alternative interaction method for map viewers**, developed as a proof of concept (PoC) within the context of digital accessibility research at Delta10.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The goal is to investigate whether a question-driven interface can help users independently find, understand and interpret geographic information that may be difficult to access through conventional map and list interfaces.
 
-## React Compiler
+## Purpose
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The assistant is intended as a complementary feature to existing map viewers, such as Delta10 Atlas. Rather than replacing the map or its existing functionality, it provides an additional way to interact with geographic data through natural-language questions and structured responses.
 
-## Expanding the ESLint configuration
+The central research question is:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+> Can a user discover something with the assistant that would otherwise be impossible, or considerably more difficult, to discover using the existing map and list?
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Scope
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+This PoC focuses on exploring the concept and its potential value, rather than developing a production-ready Atlas integration.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The initial implementation will explore:
 
-```
+- Finding geographic objects through questions.
+- Describing spatial relationships between objects.
+- Explaining why objects match certain geographic criteria.
+- Presenting results in an accessible, structured interface.
+- Supporting keyboard and screen reader interaction.
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+The initial implementation will use predefined queries and a limited dataset. AI integration and direct Atlas integration are considered potential future developments, not requirements for this PoC.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Tech Stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- React
+- Vite
+- TypeScript
+- pnpm
+- Tailwind CSS 4
+- shadcn/ui
+- Lucide React
+- Vitest
+- axe-core
 
-```
+## Status
+
+This project is an experimental proof of concept. Its purpose is to validate the feasibility and accessibility value of a geographic assistant and explore how such an interaction could complement existing map viewers.
