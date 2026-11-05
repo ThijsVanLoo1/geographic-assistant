@@ -66,11 +66,15 @@ function DistanceResultList({results,}: { results: DistanceResult[]; }) {
     }
 
     return (
-        <ol className="space-y-2">
+        <ol
+            aria-label="Basisscholen binnen de opgegeven afstand"
+            className="space-y-2">
             {results.map(({ point, distanceMeters }) => (
-                <ResultCard key={point.id} title={point.name}>
-                    <p>{formatDistance(distanceMeters)} vanaf de referentielocatie.</p>
-                </ResultCard>
+                <li key={point.id}>
+                    <ResultCard title={point.name}>
+                        <p>{formatDistance(distanceMeters)} vanaf de referentielocatie.</p>
+                    </ResultCard>
+                </li>
             ))}
         </ol>
     );
